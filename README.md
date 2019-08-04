@@ -1,0 +1,3 @@
+# Collective-Shopping
+An app for buying products in bulk to save money.
+#Clone it and run npm install to work...

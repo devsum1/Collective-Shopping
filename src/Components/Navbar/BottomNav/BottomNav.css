@@ -1,0 +1,16 @@
+.Topnavbar{
+    background: grey;
+}
+
+.nav-link{
+    margin: 0px 10px;
+    font-size: 18px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.fa.fa-user,.fa.fa-phone{
+    padding: 7px;
+    font-size: 20px;
+    cursor:pointer;
+}

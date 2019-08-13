@@ -1,9 +1,14 @@
 import React,{Component} from 'react';
+import ShowAds from "../../Showads/Showads"
+import Categories from "../../Categories/Categories"
 
 class Home extends Component{
   render(props){
     return(
-     <div>Home </div>
+     <div>
+     <Categories/>
+     <ShowAds/>
+     </div>
     );
   }
 }

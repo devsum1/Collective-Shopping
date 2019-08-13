@@ -10,10 +10,9 @@ import Home from "../../Routes/Home/Home"
 class TopNav extends Component{
   render(props){
     return(
-      <Router>
       <nav className="navbar navbar-expand-lg navbar-light Topnavbar">
           <a className="navbar-brand" href="#">
-              <div className = "Main-Logo"> <Link to = {"/Home"}></Link></div>
+              <Link to = "/" ><div className = "Main-Logo"> </div></Link>
           </a>
 
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +40,7 @@ class TopNav extends Component{
         </form>
         
          
-             <Link to = {"/Cart"}><i className="fa fa-shopping-bag cart-icon" aria-hidden="true"></i>
+             <Link to = "/Cart"><i className="fa fa-shopping-bag cart-icon" aria-hidden="true"></i>
              </Link>
           
         
@@ -50,14 +49,8 @@ class TopNav extends Component{
         </span>
       </div>
 
-      <Switch>
-              <Route exact path="/" component={Home} />
-              <Route  path='/cart' component={Cart} />
-          </Switch>
+              
     </nav>
-
- </Router>
-
     );
   }
 }

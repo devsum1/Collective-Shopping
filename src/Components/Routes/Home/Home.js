@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import ShowAds from "../../Showads/Showads"
 import Categories from "../../Categories/Categories"
+import Products from "../../../Components/Products/Products"
 
 class Home extends Component{
   render(props){
@@ -8,6 +9,7 @@ class Home extends Component{
      <div>
      <Categories/>
      <ShowAds/>
+     <Products/>
      </div>
     );
   }

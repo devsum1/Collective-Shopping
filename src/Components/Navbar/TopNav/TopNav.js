@@ -6,6 +6,8 @@ import "../../../../node_modules/font-awesome/css/font-awesome.min.css";
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Cart from "../../Cart/Cart";
 import Home from "../../Routes/Home/Home"
+import {connect} from 'react-redux';
+import { log } from 'util';
 
 class TopNav extends Component{
   render(props){
@@ -45,7 +47,7 @@ class TopNav extends Component{
           
         
 
-        <span className = "cart-number">0
+        <span className = "cart-number">{this.props.cartNumber.orderCount}
         </span>
       </div>
 
@@ -54,4 +56,11 @@ class TopNav extends Component{
     );
   }
 }
-export default TopNav;
+function mapStateToProps(state) {
+  return {
+    cartNumber: state
+  };
+
+}
+
+export default connect(mapStateToProps)(TopNav);

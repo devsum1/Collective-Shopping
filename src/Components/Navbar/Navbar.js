@@ -5,10 +5,11 @@ import "./Navbar.css";
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 class Navbar extends Component{
+ 
   render(props){
     return(
         <div >
-            <TopNav/>
+            <TopNav />
             <BottomNav/>
         </div>
     );

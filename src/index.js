@@ -4,19 +4,32 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Cart from "./Components/Cart/Cart";
 import Home from "./Components/Routes/Home/Home"
+import {createStore} from "redux";
+import {Provider} from 'react-redux';
 
+import allReducers from './reducers';
+
+
+const store = createStore(
+        allReducers,
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+      );
 
 ReactDOM.render(
-        <Router>
-        <App/>
-        <Switch>
+
+  <Router>
+<Provider store = {store} >
+     <App/>
+       <Switch>
         <Route exact path="/" component={Home} />
         <Route  exact path='/cart' component={Cart} />
-        </Switch>
-</Router>
+       </Switch>
+</Provider>
+  </Router>
+
 ,document.getElementById('root'));
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

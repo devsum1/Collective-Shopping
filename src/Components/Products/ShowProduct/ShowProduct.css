@@ -4,7 +4,7 @@
   margin: auto auto;
 }
 
-.card{
+.product-card{
     display: inline-block;
     width:300px;
     margin: 10px;
@@ -14,7 +14,7 @@
     text-align: center;
 }
 
-.card-text{
+.product-card-text{
     overflow:hidden;
     height: 50px;
     margin: 5px

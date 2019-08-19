@@ -1,0 +1,19 @@
+div.cart-card{
+    width:70%;
+    margin: 20px;
+
+}
+
+.card-img{
+    width: 150px;
+    height: 150px;
+    margin: auto auto;
+  }
+  
+  .card-text{
+      overflow:hidden;
+      height: 50px;
+      margin: 5px
+  }
+  
+  

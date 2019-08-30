@@ -23,8 +23,8 @@ class TopNav extends Component{
     
       <div className = "collapse navbar-collapse" id="navbarSupportedContent">
     
-        <form className="form-inline my-10 my-lg-0 ">
-          <input className="form-control mr-sm-2 main-search" type="search" placeholder="Search" aria-label="Search"/>
+        <form className="form-inline my-10 my-lg-0 .top-form ">
+          <input className="form-control mr-sm-2 main-search .top-form-control" type="search" placeholder="Search" aria-label="Search"/>
           <div className="dropdown">
             <button className="btn btn-outline my-2 my-sm-0 dropdown-toggle category-options" type="submit" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Select Category

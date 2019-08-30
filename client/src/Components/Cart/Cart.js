@@ -10,9 +10,9 @@ class Cart extends Component{
     return(
     <div>
         {
-            this.props.cartItem.addToCart.map((cartitem)=><CartDetail cartitem = {cartitem}/>)
+            this.props.cartItem.addToCart.map((cartitem,index)=><CartDetail num = {index} cartitem = {cartitem}/>)
         }
-        <Checkout/>s
+        <Checkout/>
     </div>
     );
   }

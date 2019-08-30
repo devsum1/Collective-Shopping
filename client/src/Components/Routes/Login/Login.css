@@ -1,0 +1,79 @@
+.login-container{
+    background: black;
+    height: 400px;
+    margin-top: 100px;
+    position: relative;
+    
+}
+.user-form{
+    margin: 20px auto;
+    width: 500px;
+    left:28%;
+    height: 600px;
+    width:450px;
+   padding: 50px;
+   background: aliceblue;
+   position: relative;
+   bottom: 45px;
+   top: -21%;
+    height: 500px; 
+   z-index: 1;
+   box-shadow: 0 0 15px 9px #00000096;
+}
+
+
+.login-info-box{
+    color:wheat;
+    width:30%;
+    padding:0 50px;
+    top:20%;
+    position:absolute;
+    text-align:left;
+}
+.register-info-box{
+    color:wheat;
+    width:30%;
+    padding:0 50px;
+    top:20%;
+    right:0;
+    position:absolute;
+    text-align:left;
+    
+}
+
+.back-options{
+    width: 80%;
+    margin: 100px auto;
+}
+
+.Sign-up{
+    float: left;
+}
+
+.Login{
+    float: right;
+}
+
+#log-login-show,#log-reg-show{
+    border: 1px solid #9E9E9E;
+    padding: 5px 5px;
+    width: 150px;
+    display: block;
+    background-color: rgba(0,0,0,0.1);
+    color: wheat;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+@keyframes Login {
+    from  { left:-28%;}
+    to{ left:28%;}
+  }
+
+  @keyframes Register {
+    0%   {left:28%;}
+    100%  {left:-28%;}
+  }

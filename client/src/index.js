@@ -7,6 +7,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Cart from "./Components/Cart/Cart";
 import Home from "./Components/Routes/Home/Home"
+import Login from "./Components/Routes/Login/Login";
 import {createStore} from "redux";
 import {Provider} from 'react-redux';
 
@@ -26,6 +27,7 @@ ReactDOM.render(
        <Switch>
         <Route exact path="/" component={Home} />
         <Route  exact path='/cart' component={Cart} />
+        <Route  exact path='/login' component={Login} />
        </Switch>
 </Provider>
   </Router>

@@ -4,11 +4,9 @@
     height: 70px;  
 }
 form{
-    
     position: relative;
     top: 12px;
-    margin: 0px 300px 0px 100px;
-
+    margin: auto;
 }
 .Main-Logo{
     background: url(../../../assets/Logo/largee.png) -243px center no-repeat;

@@ -1,3 +1,4 @@
+
 div.cart-card{
     width:70%;
     margin: 20px;
@@ -16,4 +17,15 @@ div.cart-card{
       margin: 5px
   }
   
-  
+  .table{
+    width: 70%;
+    margin: 20px;
+    border: 2px solid #80808030;
+  }
+
+  .product-desc{
+   width: 300px;
+  }
+  .show-order{
+    margin: 10px;
+  }

@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import "../BottomNav/BottomNav.css"
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 class BottomNav extends Component{
   render(props){
     return(
@@ -20,7 +21,8 @@ class BottomNav extends Component{
           <a className="nav-item nav-link active bottom-content">Home <span className="sr-only">(current)</span></a>
           <a className="nav-item nav-link bottom-content" >Collection</a>
           <a className="nav-item nav-link bottom-content" >Today's deals</a>
-          <a className="nav-item nav-link bottom-content" ><i class="fa fa-user" aria-hidden="true"></i></a>
+          <Link to = "/Login"><i class="fa fa-user" aria-hidden="true"></i>
+             </Link>
           <a className="nav-item nav-link bottom-content" ><i class="fa fa-phone" aria-hidden="true"></i></a>
         </div>
       

@@ -46,7 +46,7 @@ class Login extends Component{
 			}
 		})
 		.then(response => {
-		  alert(response.data);
+		  console.log(response.data);
 		})
 	}
 	else{

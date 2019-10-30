@@ -1,11 +1,15 @@
+
 const addToCart = (state = [],action)=>{
+    console.log(state);
     switch(action.type){
       case 'add':
-          state.push(action.payload);
+         state = action.payload;
+         console.log(state);
           break;
-      case 'delete':
-           state.pop(action.payload);
+      case 'getItems':
+           state = action.payload;
            break;
+     
     default:
         return state;
     }

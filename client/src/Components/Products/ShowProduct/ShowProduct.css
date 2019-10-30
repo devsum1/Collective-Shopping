@@ -3,6 +3,9 @@
   height: 150px;
   margin: auto auto;
 }
+.order-signal{
+  display: inline-block;
+}
 
 .product-card{
     display: inline-block;

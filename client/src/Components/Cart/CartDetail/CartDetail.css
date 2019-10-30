@@ -2,6 +2,7 @@
 div.cart-card{
     width:70%;
     margin: 20px;
+    margin-right: 0px;
 
 }
 
@@ -18,7 +19,8 @@ div.cart-card{
   }
   
   .table{
-    width: 70%;
+    float: left;
+    max-width: 65%;
     margin: 20px;
     border: 2px solid #80808030;
   }

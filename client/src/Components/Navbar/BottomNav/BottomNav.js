@@ -7,7 +7,7 @@ class BottomNav extends Component{
     return(
     <div>
       
-      <nav className="navbar navbar-expand-lg navbar-light Topnavbar ">
+      <nav className="navbar  navbar-expand-lg navbar-light Topnavbar bottomNav ">
         <a className="navbar-brand" >
         </a>
 

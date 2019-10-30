@@ -8,12 +8,25 @@ form{
     top: 12px;
     margin: auto;
 }
+.combine{
+    position: relative;
+    top: 50%;
+    transform: translateY(-54%);
+}
 .Main-Logo{
-    background: url(../../../assets/Logo/largee.png) -243px center no-repeat;
-    width: 230px;
+    background: url(../../../assets/Logo/largee.png) -233px center no-repeat;
+    width: 255px;
     height: 80px;
     margin-top: 31px;
+    position: relative;
+    left: -17px;
+    border-radius: 0px 0px 40px;
 }
+.Main-Logo::before {
+    position: relative;
+    width:20px;
+    background:blue;
+  }
 
 .main-search{
     width: 300px;
@@ -72,3 +85,7 @@ form{
     text-align: center;
   
 }
+form.top-form .top-form-control{
+    width:400px;
+}
+

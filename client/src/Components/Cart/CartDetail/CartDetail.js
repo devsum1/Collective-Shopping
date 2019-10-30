@@ -3,13 +3,6 @@ import './CartDetail.css'
 
 class CartDetail extends Component{
 
-  constructor(props){
-    super(props);
-    this.state = {
-      orderCount:1
-    }
-  }
-
   incrementOrder = () =>{
    this.setState({
      orderCount:this.state.orderCount+1
@@ -22,9 +15,7 @@ class CartDetail extends Component{
     })
   }
   render(props){
-    console.log(this.props);
     return(  
-
       <table class="table">
   <thead>
     <tr>
@@ -36,17 +27,18 @@ class CartDetail extends Component{
   </thead>
   <tbody>
     <tr>
-      <th scope="row" class= "product-desc"><img src={this.props.cartitem.imageUrl} className="card-img" alt="..."></img></th>
-      <td class= "product-desc">{this.props.cartitem.name}</td>
+      <th scope="row" class= "product-desc"><img src={this.props.cartitem.items.imageUrl} className="card-img" alt="..."></img></th>
+      <td class= "product-desc">{this.props.cartitem.items.name}</td>
       <td class= "product-desc">
         <button class = "btn btn-primary" onClick = {this.decrementOrder}>-</button>
-        <span class = "show-order">{this.state.orderCount}</span>
+        <span class = "show-order">{this.props.cartitem.quantity}</span>
         <button class = "btn btn-primary" onClick = {this.incrementOrder}>+</button>
       </td>
-      <td class= "product-desc">{this.props.cartitem.price}</td>
+      <td class= "product-desc">{this.props.cartitem.items.price}</td>
     </tr>
   </tbody>
 </table>
+
     );
   }
 }

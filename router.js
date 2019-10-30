@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const Product = require("./models/Product");
 
 const mongoose = require('mongoose');
-var User= require('./models/User');
- const db = require('./public/config/keys').MongoURI;
+const User= require('./models/User');
+const db = require('./public/config/keys').MongoURI;
 mongoose
   .connect(
     db,
@@ -11,7 +12,6 @@ mongoose
   )
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
-
 
 
 
@@ -47,9 +47,10 @@ router.get('/login',(req,res)=>{
             var password = req.query.password;
             user.forEach((item)=>{
                 if(email==item.Useremail && password==item.password){
-                    res.json(` hi Mr ${item.Username} welcome to Collective Shopping ${item._id}`);
+                    res.send('User Logged In');
+                    res.end();
+                    
                 }
-        
             });
     
            
@@ -57,9 +58,28 @@ router.get('/login',(req,res)=>{
         }
     });
        });
-
-
-
+       //Should be in product router...
+       //Searching For all products...
+       router.get('/search',(req,res)=>{
+        Product.find({})
+        .exec((err,product)=>{
+            if(err){
+               console.log(err);
+               res.json("Error Occurs");
+            }
+            else{
+                var item = req.query.item;
+                var arr = [];
+             product.forEach((e)=>{
+                 if(e.product_category_tree.match(item)){
+                     arr.push(e);
+                 }
+             })
+            }
+            res.send(arr);
+            res.end();
+        });        
+    });
 // router.get('/',(req,res)=>{
 //     res.json(members);
 // })

@@ -1,4 +1,11 @@
 .checkout{
-    display: inline-block;
-    margin-left: 180px;
+    width: 30%;
+    position: absolute;
+    right: 0px;
+}
+.badge{
+    margin: 0px 10px;
+}
+.size{
+    font-size: 13px;
 }

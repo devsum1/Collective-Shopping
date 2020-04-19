@@ -1,85 +1,28 @@
 const express = require('express');
 const router = express.Router();
 const Product = require("./models/Product");
-
-const mongoose = require('mongoose');
-const User= require('./models/User');
-const db = require('./public/config/keys').MongoURI;
-mongoose
-  .connect(
-    db,
-    { useNewUrlParser: true }
-  )
-  .then(() => console.log('MongoDB Connected'))
-  .catch(err => console.log(err));
-
-
-
-// to register the user
-router.post('/',function(req,res){
-
-   var Username = req.body.Username;
-   var Password = req.body.Password;
-   var Useremail = req.body.Useremail;
-
-   var newuser =new User();
-   newuser.Useremail=Useremail;
-   newuser.Username =Username;
-   newuser.password =Password;
-
-   newuser.save(function(err,savedUser){
-       if(err){
-           console.log(err);
-           return res.status(500).send();
-       }
-       return res.status(200).send();
-   })
-});
-//for login the current user
-router.get('/login',(req,res)=>{
-    User.find({})
-    .exec((err,user)=>{
-        if(err){
-            console.log(err)
-        }
-        else{
-            var email = req.query.email;
-            var password = req.query.password;
-            user.forEach((item)=>{
-                if(email==item.Useremail && password==item.password){
-                    res.send('User Logged In');
-                    res.end();
-                    
-                }
-            });
-    
-           
-            
-        }
-    });
-       });
-       //Should be in product router...
-       //Searching For all products...
-       router.get('/search',(req,res)=>{
-        Product.find({})
-        .exec((err,product)=>{
-            if(err){
-               console.log(err);
-               res.json("Error Occurs");
+//Should be in product router...
+//Searching For all products...
+router.get('/search', (req, res) => {
+    Product.find({})
+        .exec((err, product) => {
+            if (err) {
+                console.log(err);
+                res.json("Error Occurs");
             }
-            else{
+            else {
                 var item = req.query.item;
                 var arr = [];
-             product.forEach((e)=>{
-                 if(e.product_category_tree.match(item)){
-                     arr.push(e);
-                 }
-             })
+                product.forEach((e) => {
+                    if (e.product_category_tree.match(item)) {
+                        arr.push(e);
+                    }
+                })
             }
             res.send(arr);
             res.end();
-        });        
-    });
+        });
+});
 // router.get('/',(req,res)=>{
 //     res.json(members);
 // })
@@ -87,7 +30,7 @@ router.get('/login',(req,res)=>{
 // router.get('/:id',(req,res)=>{
 //     const FoundPersonByID = res.some(member=> member.User === parseInt(req.params.id));
 //     const FoundPersonByName = res.some(member => member.Username === req.params.id);
-    
+
 //     if(FoundPersonByID){
 //         res.send(res.filter(member => member.User === parseInt(req.params.id)));
 //     }
@@ -96,7 +39,7 @@ router.get('/login',(req,res)=>{
 //     }
 //     else 
 //     res.status(400).json(`No members with this data belongs ${req.params.id}`);
-   
+
 // })
 
 // let UserCount = 3;
@@ -114,7 +57,7 @@ router.get('/login',(req,res)=>{
 //           collection.then(s => s.insertOne({"name":req.body.Username,"email":req.body.Useremail}));
 //         }
 //     });
-    
+
 //    console.log(req.body);
 //    res.json(members);
 //   });
@@ -122,7 +65,7 @@ router.get('/login',(req,res)=>{
 // router.delete('/:id',(req,res)=>{
 //     const FoundPersonByID = members.some(member=> member.User === parseInt(req.params.id));
 //     const FoundPersonByName = members.some(member => member.Username === req.params.id);
-    
+
 //     if(FoundPersonByID){
 //         res.send(members.filter(member => member.User !== parseInt(req.params.id)));
 //     }
@@ -131,7 +74,7 @@ router.get('/login',(req,res)=>{
 //     }
 //     else 
 //     res.status(400).json(`No members with this data belongs ${req.params.id}`);
-   
+
 // })
 
 // router.put('/:id',(req,res)=>{

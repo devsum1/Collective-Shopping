@@ -2,14 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const cart = require('../models/Cart');
- const db = require('../public/config/keys').MongoURI;
- mongoose
- .connect(
-   db,
-   { useNewUrlParser: true,useCreateIndex:true}
- )
- .then(() => console.log('MongoDB Connected'))
- .catch(err => console.log(err));
+
 
 //Adding products in cart
  router.post('/add',(req,res)=>{

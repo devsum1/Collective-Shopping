@@ -1,4 +1,3 @@
-
 const addToCart = (state = [],action)=>{
     console.log(state);
     switch(action.type){

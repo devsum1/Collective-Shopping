@@ -9,6 +9,8 @@ const keys = require('./public/config/keys');
 const user = require('./routes/user');
 const cart = require('./routes/cart');
 const payments = require('./routes/payments');
+
+const passport = require('passport');
 // Connect to MongoDB
 mongoose
   .connect(
@@ -23,8 +25,14 @@ mongoose
 
 
 app.use(express.static(path.join(__dirname,'public')));
-app.use(express.json());
+
 app.use(express.urlencoded({extended:true}));
+app.use(express.json());
+
+app.use(passport.initialize());
+// Passport config
+require("./public/config/passport")(passport);
+
 app.use('/cart',cart);
 app.use('/user',user);
 app.use('/pay',payments);

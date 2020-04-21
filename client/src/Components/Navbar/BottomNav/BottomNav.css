@@ -8,6 +8,9 @@
     font-weight: 800;
     cursor: pointer;
 }
+div.navbar-nav{
+    width: 100%;
+}
 
 .fa.fa-user,.fa.fa-phone{
     padding: 7px;
@@ -18,4 +21,7 @@
 .bottomNav{
     top:70px;
     margin-bottom: 100px;
+}
+.dropdown{
+    margin-left: auto;
 }

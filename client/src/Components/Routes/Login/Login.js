@@ -3,8 +3,12 @@ import './Login.css';
 import axios from 'axios';
 import '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Home from "../../Routes/Home/Home"
-import { Redirect } from 'react-router-dom';
-
+import { Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {userLogin} from '../../../actions/authVerify';
+import { withRouter } from "react-router-dom";
+import authToken from './authToken';
+import {signUp} from "../../../actions/authVerify"
 class Login extends Component {
 	constructor(props) {
 		super(props);
@@ -13,7 +17,6 @@ class Login extends Component {
 			Useremail: '',
 			Password: '',
 			mode: 'Login',
-			errormsg: '',
 		}
 
 	}
@@ -34,11 +37,6 @@ class Login extends Component {
 			mode: activeMode
 		});
 
-		if (activeMode == "Login") {
-			this.setState({
-				errormsg: ""
-			});
-		}
 		let form = document.querySelector('.user-form');
 		form.style.animationName = activeMode;
 		form.style.animationDuration = "1s";
@@ -47,36 +45,18 @@ class Login extends Component {
 
 	send(e) {
 		e.preventDefault();
-
-
+		const user = {
+			Useremail:this.state.Useremail,
+			Password:this.state.Password,
+		}
 		if (this.state.mode == 'Login') {
 			//Setting valid user to false
-			this.setState({
-				errormsg: ""
-			})
-			axios.get('/user/login', {
-
-				params: {
-					email: this.state.Useremail,
-					password: this.state.Password
-				}
-			})
-				.then(res => {
-					console.log(res);
-					if (res.data == true) {
-						//Send username and email to redux
-						this.setState({
-							isUserValid: true,
-							errormsg: res.data,
-						})
-						console.log("Go to home");
-					} else {
-						this.setState({
-							errormsg:res.data
-						})
-					}
-				})
-				.catch(err => console.log(err));
+			
+			
+			//Triggering action
+			
+			this.props.storeUser(user,this.props.history);
+			
 		}
 		else {
 			//User Data send to the server  
@@ -85,10 +65,9 @@ class Login extends Component {
 				Useremail: this.state.Useremail,
 				Password: this.state.Password
 			}
-
-			axios.post('/user/signup', userdata)
-				.then(res => this.setState({ errormsg: res.data }))
-				.catch(err => alert(err));
+			//Dispatching for signUp
+              this.props.signUser(userdata);
+			
 		}
 
 	}
@@ -155,9 +134,10 @@ class Login extends Component {
 
 						<div class="form-group">
 							{
+							
 								this.state.errormsg == "SignUp Succesful" ?
-									<p class="text-primary">{this.state.errormsg}</p> :
-									<p class="text-danger">{this.state.errormsg}</p>
+									<p class="text-primary">{this.props.state.user.errors}</p> :
+									<p class="text-danger">{this.props.state.user.errors}</p>
 							}
 
 						</div>
@@ -169,10 +149,28 @@ class Login extends Component {
 					</form>
 
 				</div>
-				//Redirecting to home if login Succesful
+			
 				{this.state.isUserValid ? <Redirect to='/' /> : ""}
 			</div>
 		)
 	}
 }
-export default Login;
+
+const mapDispatchToProps = (dispatch)=>{
+     return {
+		 storeUser:(payload,history)=>dispatch(userLogin(payload,history)),
+		 signUser:(payload)=>dispatch(signUp(payload))
+	 }
+}
+
+const mapStateToProps = (state) =>{
+   return{
+	   state
+   }
+}
+
+
+export default connect(
+    mapStateToProps, 
+    mapDispatchToProps
+)(withRouter(Login));
